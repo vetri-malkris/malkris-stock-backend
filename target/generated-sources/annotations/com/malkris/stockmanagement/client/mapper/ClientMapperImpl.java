@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-05-29T16:58:11+0530",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.0.v20260407-0427, environment: Java 21.0.10 (Eclipse Adoptium)"
+    date = "2026-06-08T12:04:06+0530",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Microsoft)"
 )
 @Component
 public class ClientMapperImpl implements ClientMapper {
@@ -21,11 +21,11 @@ public class ClientMapperImpl implements ClientMapper {
 
         ClientResponse.ClientResponseBuilder clientResponse = ClientResponse.builder();
 
-        clientResponse.contact( client.getContact() );
-        clientResponse.createdAt( client.getCreatedAt() );
         clientResponse.id( client.getId() );
         clientResponse.name( client.getName() );
         clientResponse.type( client.getType() );
+        clientResponse.contact( client.getContact() );
+        clientResponse.createdAt( client.getCreatedAt() );
 
         return clientResponse.build();
     }
