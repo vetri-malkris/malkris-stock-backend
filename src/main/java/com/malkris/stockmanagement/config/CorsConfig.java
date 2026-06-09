@@ -21,7 +21,7 @@ public class CorsConfig {
         config.setAllowedOriginPatterns(
                 Arrays.asList(
                         "http://localhost:4200",
-                        "https://yourdomain.com"
+                        "https://malkris-stock-frontend.vercel.app"
                 )
         );
 
