@@ -60,7 +60,7 @@ public class AuthServiceImpl
                         org.springframework.security.core.userdetails
                                 .User
                                 .builder()
-                                .username(user.getEmail())
+                                .username(user.getName())
                                 .password(user.getPassword())
                                 .roles(user.getRole().name())
                                 .build()
@@ -79,17 +79,18 @@ public class AuthServiceImpl
 
     @Override
     public AuthResponse login(LoginRequest request) {
+        System.out.println("Login  attempt for user: " + request.getName());
 
         authenticationManager.authenticate(
 
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
+                        request.getName(),
                         request.getPassword()
                 )
         );
 
         User user =
-                userRepository.findByEmail(request.getEmail())
+                userRepository.findByName(request.getName())
                         .orElseThrow(() ->
                                 new BadRequestException(
                                         "Invalid credentials"
@@ -101,7 +102,7 @@ public class AuthServiceImpl
                         org.springframework.security.core.userdetails
                                 .User
                                 .builder()
-                                .username(user.getEmail())
+                                .username(user.getName())
                                 .password(user.getPassword())
                                 .roles(user.getRole().name())
                                 .build()
